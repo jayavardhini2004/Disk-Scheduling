@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Scheduling Algorithms</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Disk Scheduling Algorithms</h1>
+        <label for="algorithm">Choose an algorithm:</label><br>
+        <select id="algorithm" onchange="showAlgorithm()">
+            <option value="fcfs">FCFS</option>
+            <option value="sstf">SSTF</option>
+            <option value="scan">SCAN</option>
+            <option value="cscan">C-SCAN</option>
+            <option value="look">LOOK</option>
+            <option value="clook">C-LOOK</option>
+        </select><br>
+        <div id="algorithm-description"></div>
+        
+        <h2>Simulation</h2>
+        <form id="disk-form" onsubmit="simulate(event)">
+            <label for="requests">Disk Requests (comma separated):</label>
+            <input type="text" id="requests" required>
+            
+            <label for="head">Initial Head Position:</label>
+            <input type="number" id="head" required>
+
+            <label for="previous-head">Previous Head Position:</label>
+            <input type="number" id="previous-head" required>
+            
+            <label for="disk-size">Final Disk Number:</label>
+            <input type="number" id="disk-size" required>
+
+            <button type="submit">SIMULATE</button>
+        </form>
+        
+        <div id="simulation-result"></div>
+        <a class="back" href="index.html">Back to Home</a>
+    </div>
+    
+</body>
+</html>

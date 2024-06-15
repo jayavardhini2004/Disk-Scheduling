@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Learn</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://slidescorner.com/wp-content/uploads/2024/02/Aesthetic-Pastel-Cute-PowerPoint-Background-Organic-Shapes-Stars-by-SlidesCorner.com_.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(227, 157, 173, 0.9);
+            padding: 20px 0;
+            display: flex;
+            justify-content: left;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            color:#fff;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9); /* Slight opacity for readability */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin-top: 60px; /* Add top margin to avoid overlap with navbar */
+            text-align: left;
+            font-size: 20px;
+        }
+
+        h1, p {
+            color: #333;
+        }
+
+        a.back {
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a.back:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function showContent(id) {
+            const content = {
+                fcfs: `
+                    <h2>First-Come, First-Served (FCFS)</h2>
+                    <p>FCFS processes requests in the order they arrive. It is simple to implement but can lead to high average seek times and inefficient disk utilization.</p>
+                    <!-- Add additional information for FCFS here -->
+                `,
+                sstf: `
+                    <h2>Shortest Seek Time First (SSTF)</h2>
+                    <p>SSTF services the request closest to the current head position, reducing the total seek time compared to FCFS. However, it can cause starvation of requests that are far from the current head position.</p>
+                    <!-- Add additional information for SSTF here -->
+                `,
+                look: `
+                    <h2>LOOK</h2>
+                    <p>LOOK is similar to the SCAN algorithm but the disk arm only goes as far as the last request in each direction before reversing, which improves efficiency.</p>
+                    <!-- Add additional information for LOOK here -->
+                `,
+                clook: `
+                    <h2>Circular LOOK (CLOOK)</h2>
+                    <p>CLOOK is like LOOK but returns to the start after the last request, reducing the maximum seek time compared to C-SCAN.</p>
+                    <!-- Add additional information for CLOOK here -->
+                `,
+                scan: `
+                    <h2>SCAN (Elevator Algorithm)</h2>
+                    <p>SCAN moves the disk arm in one direction, servicing requests until it reaches the end, then reverses direction. This balances seek times but may delay requests at the edges of the disk.</p>
+                    <!-- Add additional information for SCAN here -->
+                `,
+                cscan: `
+                    <h2>Circular SCAN (CSCAN)</h2>
+                    <p>CSCAN is similar to SCAN, but after reaching the end, the disk arm returns to the beginning and starts over, providing more uniform wait times but involving more movement.</p>
+                    <!-- Add additional information for CSCAN here -->
+                `
+            };
+            document.querySelector('.content').innerHTML = content[id] + '<a class="back" href="index.html">Back to Home</a>';
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <a onclick="showContent('fcfs')">FCFS</a>
+        <a onclick="showContent('sstf')">SSTF</a>
+        <a onclick="showContent('look')">LOOK</a>
+        <a onclick="showContent('clook')">CLOOK</a>
+        <a onclick="showContent('scan')">SCAN</a>
+        <a onclick="showContent('cscan')">CSCAN</a>
+    </div>
+    <div class="content">
+        <h1>Let's Learn Disk Scheduling</h1>
+        <p>
+            Here, you will learn about different algorithms used in disk scheduling, how they work, and their advantages and disadvantages.
+        </p>
+        <a class="back" href="index.html">Back to Home</a>
+    </div>
+</body>
+</html>
